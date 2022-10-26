@@ -44,11 +44,10 @@
       </html>
   <?php
     }
-  }
-    ?>
-    //fonction pour l'affichage du Footer
- // function footer() {
   
+    //fonction pour l'affichage du Footer
+  function footer() {
+  ?>
     <html>
       <head>
             <link rel="stylesheet" href="footer.css">
@@ -67,7 +66,7 @@
 
             <a href="#">Profil</a>
 
-            <a href="#">Contact</a>
+            <a href="#">Conefetact</a>
           </p>
 
           <p>A2Z&copy; 2022</p>
@@ -75,3 +74,9 @@
 
       </footer>
     </html>
+
+<?php
+
+ }
+}
+ ?>
