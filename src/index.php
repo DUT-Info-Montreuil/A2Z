@@ -5,6 +5,8 @@ define('SITE_ROOT',__DIR__);
 
 require_once "connexion.php";
 require_once "modules/mod_connexion/mod_connexion.php";
+require_once "modules/mod_principale/mod_principale.php";
+
 
 connexion::initConnexion(); // On l’appelle donc sur une classe, et non sur un objet instancié.
 
@@ -18,6 +20,7 @@ switch ($_GET['module']) {
     case "acceuil":
         echo "  <a href=\"index.php?module=acceuil\">acceuil</a> </br> ";
         echo "  <a href=\"index.php?module=connexion&action=menue\">Mod Connexion</a> </br> ";
+        echo "  <a href=\"index.php?module=principale\">Mod Habillage</a> </br> ";
         break;
 
         case "connexion":
@@ -25,7 +28,7 @@ switch ($_GET['module']) {
         break;
 
         case "principale":
-        //$module = new Mod();
+        $module = new ModPrincipale();
         break;
         
 }

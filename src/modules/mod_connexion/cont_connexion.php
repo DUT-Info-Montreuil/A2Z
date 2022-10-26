@@ -6,10 +6,6 @@ require_once "modele_connexion.php";
 class ContConnexion
 {
 
-    private $vue;
-    private $modele;
-    private $action;
-
     public function __construct()
     {
         $this->vue = new VueConnexion;

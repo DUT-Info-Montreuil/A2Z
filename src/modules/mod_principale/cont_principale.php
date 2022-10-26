@@ -1,7 +1,7 @@
 <?php
 
-require_once "vue_connexion.php";
-require_once "modele_connexion.php";
+require_once "modules/mod_principale/Vue_mod_principale/Vue_habillage/vue_habillage.php";
+require_once "modules/mod_principale/modele_principale.php";
 
 class ContPrincipale
 {
@@ -13,6 +13,14 @@ class ContPrincipale
 
         // ? veutr dire if  
         // : veut dire else  
-        $this->action = (isset($_GET['action']) ? $_GET['action'] : 'bienvenue');
     }
+
+
+    public function affichageHabillage(){
+        $this->vue->navBarHabillage();
+        $this->vue->footerHabillage();
+    }  
+
+    
+    
 }
