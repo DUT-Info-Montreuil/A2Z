@@ -14,9 +14,8 @@ body {
 }
 .contenir {
   position: relative;
- 
-
 }
+
 
 form {
   background: rgba(255, 255, 255, .3);
@@ -30,6 +29,7 @@ form {
   -moz-backdrop-filter: blur(10px);
   box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
   text-align: center;
+
 }
 
 p {
@@ -57,7 +57,7 @@ a:active {
   text-shadow: none;
 }
 
-input {
+.saisieText {
   background: transparent;
   border: none;
   border-left: 1px solid rgba(255, 255, 255, .3);
@@ -76,6 +76,13 @@ input {
   margin-bottom: 2em;
 }
 
+.checkboxMdp{
+  size: 1;
+  z-index: -1;
+  background: transparent;
+  border-radius: 20px;
+
+}
 input:hover,
 input[type="email"]:focus,
 input[type="password"]:focus {
@@ -106,41 +113,111 @@ input[type="button"] {
   transition: all 0.2s ease;
 }
 
-.drop-1 {
-  height: 80px;
-  width: 80px;
-  top: -20px;
-  left: -40px;
-  z-index: -1;
+.boutonMdp{
+  margin-left: 45;
 }
 
-.drop-2 {
-  height: 80px;
-  width: 80px;
-  bottom: -30px;
-  right: -10px;
+
+
+
+
+
+
+
+
+
+
+.auth-title {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 2%;
 }
 
-.drop-3 {
-  height: 100px;
+.auth-title h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+.fileUpload {
+  width: 700px;
+  height: 150px;
+  margin: auto;
+  padding: 1em;
+  position: relative;
+}
+
+.fileUpload .profilePic {
+  margin: auto;
+  text-align: center;
+  cursor:default;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.fileUpload form button {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.warningFileUpload {
+  margin-top: 10px;
+}
+
+.deleteCurrentAvatar {
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.profilePicName {
+  width: 700px;
+  height: 150px;
+  margin: auto;
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  position: relative;
+}
+
+
+.profilePic {
   width: 100px;
-  bottom: 120px;
-  right: -50px;
-  z-index: -1;
+  height: 100px;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 50px;
+  padding: auto;
+  background-size: cover !important;
+  cursor: pointer;
+  -webkit-filter: brightness(100%);
 }
 
-.drop-4 {
-  height: 120px;
-  width: 120px;
-  top: -60px;
-  right: -60px;
+.profilePic:hover {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
-.drop-5 {
-  height: 60px;
-  width: 60px;
-  bottom: 170px;
-  left: 90px;
-  z-index: -1;
+.fileUpload .profilePic {
+  margin: auto;
+  text-align: center;
+  cursor:default;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  margin-bottom: 20px;
 }
 
+
+.profilePicName {
+  width: 90%;
+}

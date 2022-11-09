@@ -1,0 +1,101 @@
+body {
+  background-color: #1d1f26;
+  height: 100vh;
+  font-family: arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenir {
+  position: relative;
+}
+
+.pageCompte {
+    background-color: #1d1f26;
+    height: 100vh;
+    font-family: arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+    
+  .informationCompte {
+    background: rgba(255, 255, 255, .3);
+    padding: 1rem;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    text-align: center;
+  }
+  
+  .sousTitre{
+    color: white;
+    opacity: .8;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  p {
+    color: white;
+    opacity: 1;
+    font-weight: 500;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .modification{
+    color: #1E90FF;
+  }
+
+  a {
+    text-decoration: none;
+    color: #ddd;
+    font-size: 12px;
+  }
+  
+  a:hover {
+    text-shadow: 2px 2px 6px #00000040;
+  }
+  
+  a:active {
+    text-shadow: none;
+  }
+  
+  .titre{
+    color: #d0d0d2;
+ 
+  }
+  .saisieText {
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    padding: 1rem;
+    width: 200px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    color: white;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    transition: all .3s;
+    margin-bottom: 2em;
+  }
+  
+  ::placeholder {
+    color: #fff;
+  }
+  
+  .boutonMdp{
+    margin-left: 45;
+  }
+
+  .imageFormulaire{
+    height: 50%;
+    width: 50%;
+  }
