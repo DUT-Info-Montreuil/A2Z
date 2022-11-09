@@ -9,10 +9,16 @@ async function popUpNomDuDossier() {
         })
         
         if (nomDossier) {
-          Swal.fire('nom dossier:', nomDossier)
+          Swal.fire('nom dossier :', nomDossier)
+        }
+
+          echo 
+
+        try {
+          $sql = 'INSERT INTO Dossier (NomDossier,PartagerPrive,ParentsPaths,ChildsPaths,idUser)VALUES (:nomDossier,false,)';
+        } catch {
+
         }
         
         })()
 }
-
-    
