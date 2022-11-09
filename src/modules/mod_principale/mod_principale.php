@@ -1,6 +1,6 @@
 <?php
 
-require_once "modules/mod_principale/cont_principale.php";
+require_once "./modules/mod_principale/cont_principale.php";
 
 
 class ModPrincipale

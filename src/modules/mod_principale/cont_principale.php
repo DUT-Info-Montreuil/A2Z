@@ -1,7 +1,7 @@
 <?php
 
-require_once "modules/mod_principale/Vue_mod_principale/Vue_habillage/vue_habillage.php";
-require_once "modules/mod_principale/modele_principale.php";
+require_once "./modules/mod_principale/Vue_mod_principale/Vue_habillage/vue_habillage.php";
+require_once "./modules/mod_principale/modele_principale.php";
 
 class ContPrincipale
 {
