@@ -17,4 +17,8 @@ class ModPrincipale
         $this->controleur->affichageHabillage();//affichage constant de la navbar et du footer
 
     }
+    public function getControleur()
+    {
+        return $this->controleur;
+    }
 }

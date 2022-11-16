@@ -11,7 +11,10 @@ class ModFavoris
         $this->controleur = new ContFavoris();
     }
 
-
+    public function getControleur()
+    {
+        return $this->controleur;
+    }
 }
 
 

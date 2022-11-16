@@ -5,14 +5,15 @@ require_once "./modules/mod_principale/modele_principale.php";
 
 class ContPrincipale
 {
+    private $modele;
+    private $action;
 
     public function __construct()
     {
         $this->vue = new VueHabillage;
         $this->modele = new ModeleConnexion;
 
-        // ? veutr dire if  
-        // : veut dire else  
+
     }
 
 
