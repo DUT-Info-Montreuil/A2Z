@@ -1,6 +1,5 @@
 <?php
 
-use LDAP\Result;
 
 class ModeleConnexion extends Connexion
 {
