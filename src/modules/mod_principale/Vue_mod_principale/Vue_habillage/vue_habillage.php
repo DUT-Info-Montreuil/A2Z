@@ -26,7 +26,7 @@ require_once "./vue_generique.php";
                 <img class="logo" src="ressource/images/TabA2Z.png" width="64" height="64">
                 <div class="navigation">
                   <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.php?module=principale" class="nav-link px-2 link-secondary">Accueil</a></li>
+                    <li><a href="index.php?module=editionExo" class="nav-link px-2 link-secondary">Accueil</a></li>
                     <li><a href="index.php?module=favoris" class="nav-link px-2 link-dark">Mes Fiches</a></li>
                     <li><a href="#" class="nav-link px-2 link-dark">Fiches publiques</a></li>
                   </ul>

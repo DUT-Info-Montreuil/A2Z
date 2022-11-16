@@ -1,17 +1,19 @@
 /*Body */
+
 body {
     overflow-y: scroll;
     background-color: #1d1f26;
     background-size: 1920px 1080px;
     max-height: 1080px;
     max-width: 1920px;
-
-
 }
+
 
 /*fin body*/
 
+
 /*Accordeon*/
+
 @media (min-width: 1920px) {
     .flex-container {
         max-width: 1920px;
@@ -30,7 +32,6 @@ body {
     flex-direction: column;
     margin-bottom: 1em;
 }
-
 
 .flex-col-md-6 {
     box-sizing: border-box;
@@ -60,13 +61,9 @@ body {
     color: #3E474F;
 }
 
-
-
 .acc {
     display: none;
 }
-
-
 
 .accordion {
     background-color: #eee;
@@ -100,7 +97,6 @@ body {
     transition: max-height, .5s;
     position: static;
 }
-
 
 .questions {
     margin-top: 20px;
@@ -157,11 +153,14 @@ label {
     margin: 0;
 }
 
+
 /********************/
+
+
 /* pseudos elements */
+
+
 /**********************/
-
-
 
 .content:before {
     content: '';
@@ -170,7 +169,6 @@ label {
     margin-top: 15px;
     transition: 0.3s;
     margin-left: 6px;
-
 }
 
 .cross:before,
@@ -191,7 +189,11 @@ label {
 
 
 /********************/
+
+
 /* check states */
+
+
 /**********************/
 
 input:checked~.content {
@@ -218,15 +220,27 @@ input:checked~.questions {
 
 
 /*draggable*/
-#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
 
-#draggable, #draggable-nonvalid { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+#droppable {
+    width: 150px;
+    height: 150px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px;
+}
 
+#draggable,
+#draggable-nonvalid {
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px 10px 10px 0;
+}
 
 .sortable {
     border: 5px solid green;
 }
-
 
 .dropp2 {
     width: 200px;
@@ -246,7 +260,6 @@ page {
     margin-bottom: 0.5cm;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
     border: 5px solid pink;
-
 }
 
 page[size="A4"] {
@@ -255,14 +268,12 @@ page[size="A4"] {
 }
 
 @media print {
-
     body,
     page {
         margin: 0;
         box-shadow: 0;
     }
 }
-
 
 
 /*changefont*/
@@ -285,18 +296,13 @@ li {
 .select {
     position: absolute;
 }
+
+
 /*fin changefont*/
 
 
-
-
-
-
-
-
-
-
 /*bouton change taille font*/
+
 #up {
     width: 30px;
     height: 30px;
@@ -308,4 +314,17 @@ li {
     height: 30px;
 }
 
+
 /*fin bouton change taille font*/
+
+#tt1 {
+    border: solid #0098db 10px;
+    height: 40px;
+    width: 40px;
+}
+
+#tt2 {
+    border: solid palevioletred 10px;
+    height: 40px;
+    width: 40px;
+}
