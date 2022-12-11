@@ -21,9 +21,9 @@ class ModeleEditionExo  extends Connexion
 		$statement1->execute(array(':idFiche' => $idFiche));
 		$result = $statement1->fetchAll();//on  retourne tous les exos
 
-		if(!empty($result)){
-			$this->insertionExoDansPage($result);
-		}
+		
+		return $result;
+		
 		
 		
 		
