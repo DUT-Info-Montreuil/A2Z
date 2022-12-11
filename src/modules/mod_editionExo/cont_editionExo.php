@@ -14,7 +14,6 @@ class ContEditionExo extends Controleurgenerique
         $this->vue = new VueEdition;
         $this->modele = new ModeleEditionExo;
         $this->action = (isset($_GET['action']) ? $_GET['action'] : 'editionExo');
-        $this->recupererExercices();
     }
 
 
@@ -40,7 +39,8 @@ class ContEditionExo extends Controleurgenerique
 
     public function affichagePageEditionExo()
     {
-        $this->vue->pageExoEdition();
+        $tableauExercice = $this -> modele -> recupererExercices();
+        $this->vue->pageExoEdition($tableauExercice);
     }
 
     public function affichageConnexionReussie()
@@ -49,6 +49,6 @@ class ContEditionExo extends Controleurgenerique
     }
 
     public function recupererExercices(){
-        $this -> modele -> recupererExercices();
+       return  $this -> modele -> recupererExercices();
     }
 }
