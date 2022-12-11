@@ -1,4 +1,5 @@
 function tojson() {
+
     //  This gives you an HTMLElement object
     var contentElements = document.querySelector('#formSave page').children; // recupere tous les elements enfants de celui recherche dans querySelector (selecteur CSS)
     let exercicesHTML = [];

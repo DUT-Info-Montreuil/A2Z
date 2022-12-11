@@ -36,7 +36,6 @@ class ModeleEditionExo  extends Connexion
 
 		if(!empty($result)){
 			$this->insertionExoDansPage($result);
-			var_dump($result);
 		}
 		
 		

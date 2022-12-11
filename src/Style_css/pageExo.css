@@ -475,3 +475,9 @@ ul {
         opacity: 0;
     }
 }
+
+#bouttonDelete {
+    position: absolute;
+    font-size: 12px;
+    background-color: #222;
+}
