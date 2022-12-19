@@ -62,7 +62,7 @@ class Vue_info_statistique extends Vue_Generique
                         <div class="float-right">
                             <i class="fa fa-th text-primary h4 ml-3"></i>
                         </div>
-                        <h5 class="font-size-20 mt-0 pt-1">0</h5><!-- A changer en fonction du nb de fiche -->
+                        <h5 class="font-size-20 mt-0 pt-1"><?php echo $statUseur[3]['userNumber'] ?></h5>
                         <p class="text-muted mb-0">Total des Fiches</p>
                     </div>
                 </div>
