@@ -15,7 +15,7 @@ class ModeleEditionExo  extends Connexion
 	{
 		$idFiche = htmlspecialchars($_GET['idFiche']);
 
-		$sql1 = 'Select contenu from exercices where idFiche = :idFiche'; // selectionenr les exercices avec lequel l'id de la fiche existe deja et si l'exo existe deja 
+		$sql1 = 'Select contenu from exercices where idFiche = :idFiche ORDER BY positionExercice'; // selectionenr les exercices avec lequel l'id de la fiche existe deja et si l'exo existe deja 
 		$statement1 = Connexion::$bdd->prepare($sql1);
 
 		$statement1->execute(array(':idFiche' => $idFiche));

@@ -29,9 +29,9 @@ class saveExo extends connexion
 
 
             //requete SQL
-            $sql = 'INSERT into exercices (idExo, contenu, idFiche)  VALUES (:idExo , :contenu, :idFiche)';
-            $sql1 = 'Select * from exercices where idFiche = :idFiche and idExo = :idExo'; // selectionenr les exercices avec lequel l'id de la fiche existe deja et si l'exo existe deja 
-            $sql2 = 'UPDATE exercices SET contenu= :contenu WHERE idExo =:idExo';
+            $sql = 'INSERT into exercices (idExo, contenu, idFiche,positionExercice)  VALUES (:idExo , :contenu, :idFiche, :positionExercice)';
+            $sql1 = 'SELECT * from exercices where idFiche = :idFiche and idExo = :idExo'; // selectionenr les exercices avec lequel l'id de la fiche existe deja et si l'exo existe deja 
+            $sql2 = 'UPDATE exercices SET contenu= :contenu , positionExercice =:positionExercice WHERE idExo =:idExo';
 
 
             //preparation des requetes SQL
@@ -45,7 +45,7 @@ class saveExo extends connexion
                 //variable de recuperation de données
                 $idExercice = htmlspecialchars($tableauContenuExerciceDecode['idExo'][$i]); //recuperation de l'id de l'exo
                 $html =  htmlspecialchars($tableauContenuExerciceDecode['html'][$i]); // recuperation de l'html
-
+                $positionExercice = htmlspecialchars($tableauContenuExerciceDecode['positionExercice'][$i]);
 
                 //verification (select)
                 $statement1->execute(array(':idFiche' => $idFiche, ':idExo' => $idExercice));
@@ -53,11 +53,11 @@ class saveExo extends connexion
 
 
                 if ($result) { // si l'exo existe alors on le modifie (update)
-                    $tableauExec = array(':contenu' => json_encode($html), ':idExo' => $idExercice);
+                    $tableauExec = array(':contenu' => json_encode($html), ':idExo' => $idExercice, ':positionExercice'=> $positionExercice);
                     $statement2->execute($tableauExec);
                     
                 } else { // sinon on le crée (insert)
-                    $tableauExec = array(':idExo' => $idExercice, ':contenu' => json_encode($html), ':idFiche' => $idFiche);
+                    $tableauExec = array(':idExo' => $idExercice, ':contenu' => json_encode($html), ':idFiche' => $idFiche, ':positionExercice'=> $positionExercice);
                     $statement->execute($tableauExec); //vois si pour le mdp on fait htmlspecialchars
                     
                 }
