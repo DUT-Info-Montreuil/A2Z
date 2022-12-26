@@ -20,6 +20,10 @@ class saveExo extends connexion
         //var_dump($exerciceJSON);
         $tableauContenuExerciceDecode = json_decode($exerciceJSON, true);
         //decoder le json en fichier
+
+        $idAsupprimer = $_POST['idAsupp']; // tableau en JSON contenant tout (id et le code html)
+
+        echo $idAsupprimer;
         try {
             // faire une boucle for qui va d'une part
             $idFiche = htmlspecialchars($tableauContenuExerciceDecode['idFiche']);

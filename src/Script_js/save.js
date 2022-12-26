@@ -5,7 +5,6 @@ function tojson() {
     Array.from(contentElements).forEach(element => {
         const texte = $(`#${element.id} input`)[0].value
         $(`#${element.id} input`).attr("value", texte)
-        console.log(texte)
         exercicesHTML.push(element.outerHTML)
     }); // transforme le HTMLCollection en tableau et ajoute chaque element dans le tableau exercicesHTML
 
@@ -42,7 +41,6 @@ function tojson() {
 
 
 
-    console.log(deco_var);
 
     $.ajax({
         method: "POST",
