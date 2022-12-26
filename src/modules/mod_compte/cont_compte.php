@@ -7,6 +7,7 @@ if (constant("a2z") != "rya")
 require_once "vue_compte.php";
 require_once "modele_compte.php";
 require_once("./Common/Bibliotheque_Communes/Verification_Creation_Token.php");
+require_once("./Common/Bibliotheque_Communes/Traitement_Images.php");
 require_once("./Common/Bibliotheque_Communes/affichageRecurrent.php"); //
 
 class ContCompte extends Controleurgenerique
@@ -178,7 +179,7 @@ class ContCompte extends Controleurgenerique
     //ici en fonction de ce que nous renvoie  recupererImage() on traite si c'est une erreur ou pas 
     public function changementPhotoDeProfile()
     {
-        $image = $this->modele->recupereImage();
+        $image = recupereImage();
 
         switch ($image) {
 

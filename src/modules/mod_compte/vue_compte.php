@@ -152,7 +152,7 @@ class VueCompte extends Vue_Generique
           <div class="mb-3">
             <input type="file" class="form-control form-control-sm" aria-label="Small file input example" accept="image/png, image/jpeg, image/jpg " name="image" required>
           </div>
-          <div><input class="saisieText" name="submit" type="submit" value="Sauvegarder ma photo !">
+          <div><input class="saisieText" name="envoiPhoto" type="submit" value="Sauvegarder ma photo !">
           <button onclick="window.location.href = 'index.php?module=compte&action=affichageInfoCompte'" type="button" class="saisieText">Annuler</button>
 
         </div>

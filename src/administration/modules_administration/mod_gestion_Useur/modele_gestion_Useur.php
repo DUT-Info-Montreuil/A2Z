@@ -115,13 +115,13 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
     }
 
     // fonction génerique pour récupérer toutes les infosd'un user dans un seul tableau 
-    public function recuperationIdUser()
+    public function recuperationIdUser($identifiant)
     {
         try {
 
             $sql = 'Select idUser from utilisateur WHERE identifiant=:identifiant';
             $statement = self::$bdd->prepare($sql);
-            $statement->execute(array(':identifiant' => $_SESSION['identifiant']));
+            $statement->execute(array(':identifiant' => $identifiant));
             $resultat = $statement->fetch();
             return $resultat;
         } catch (PDOException $e) {
@@ -180,12 +180,20 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
                             if ($resultat) {
                                 return 4; //identifiant deja utilisé';
                             } else {
+                                //on stocke à l'avance l'id du compte actuel pour pouvoir mettre à jour le $_SESSION
+                                $îdUseur = $this->recuperationIdUser($_SESSION['identifiant']);
+
                                 $sql = "UPDATE utilisateur SET " . $colonneModifier . " = :donneUseur WHERE idUser =:idUser";
                                 $statement = Connexion::$bdd->prepare($sql);
                                 $statement->execute(array(
                                     ':donneUseur' => htmlspecialchars($value),
                                     ':idUser' => htmlspecialchars($_GET['idUser'])
                                 ));
+
+                                //on oublie pas ici de changer également le $_SESSION actuel
+                                if (strcmp($colonneModifier, 'identifiant') == 0 && strcmp($_GET['idUser'], $îdUseur['idUser']) == 0) {
+                                    $_SESSION['identifiant'] = $_POST[$clef];
+                                }
                             }
                         } else {
                             return 3;

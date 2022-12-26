@@ -131,10 +131,24 @@ class VueEdition extends Vue_connexion_generique
                     <div class="panel">
                         <input type="radio" class="acc" id="tab-3" name="tabs">
                         <label class="labelEditionExo" for="tab-3">
-                            <div class="cross-box"><span class="cross"></span></div><span class="accordion-heading">Banque d'image</span>
-                        </label>
+                            <div class="cross-box"><span class="cross"></span></div>
+                            <span class="accordion-heading">Banque d'image</span>
+                            </label>
+
+                            <div class="content">
+                                <script src="Script_js/import_photos.js"></script>
+                                <script type="text/javascript"></script>
+
+                                <input type="file" class="form-control form-control-sm" aria-label="Small file input example" accept="image/png, image/jpeg, image/jpg " name="image" required>
+                                <table>
+                                    
+                                </table>
+                            </div>
+
 
                     </div>
+
+
 
                 </div>
                 <!--Fin Accordeon-->

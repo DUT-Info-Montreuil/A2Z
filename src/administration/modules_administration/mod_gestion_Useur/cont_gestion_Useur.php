@@ -161,7 +161,7 @@ class ContConnexion_gestion_Useur extends Controleurgenerique
 
     public function suppresionUseur()
     {
-        $adminactuel = $this->modele->recuperationIdUser(); //pour éviter qu'on puisse supprimé le compte sur lequel on est connecté
+        $adminactuel = $this->modele->recuperationIdUser( $_SESSION['identifiant']); //pour éviter qu'on puisse supprimé le compte sur lequel on est connecté
         return $this->modele->suppresionUseur($adminactuel);
     }
 
