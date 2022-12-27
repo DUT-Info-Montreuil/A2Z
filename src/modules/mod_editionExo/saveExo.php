@@ -38,40 +38,57 @@ class saveExo extends connexion
             $statement3 = Connexion::$bdd->prepare($sql3);
             $statement4 = Connexion::$bdd->prepare($sql4);
             $statement3->execute(array(':idFiche' => $idFiche));
-            $exoDansLaBDD = $statement3->fetchAll();//structure ne dictionnaire
-            $nouveauxTableu = array();//pour éviter d'avoir un tableau en dictionnaire de la BDD
+            $exoDansLaBDD = $statement3->fetchAll(); //structure ne dictionnaire
 
-            for ($i = 0; $i < count($exoDansLaBDD); $i++) {  //parcours de la bd et compare si delete ou update en fonction
-                if (in_array($exoDansLaBDD[$i]['idExo'], $tableauContenuExerciceDecode['idExo'])) { //update
-                    $indiceExoSite = htmlspecialchars(array_search($exoDansLaBDD[$i]['idExo'], $tableauContenuExerciceDecode['idExo']));//on cherche lebon index pour le tableau du site web
-                    
-                    //update
-                    $idExercice = htmlspecialchars($tableauContenuExerciceDecode['idExo'][$indiceExoSite]); //recuperation de l'id de l'exo
-                    $html =  htmlspecialchars($tableauContenuExerciceDecode['html'][$indiceExoSite]); // recuperation de l'html                    
-                    $tableauExec = array(':contenu' => json_encode($html), ':idExo' => $idExercice);
-                    $statement2->execute($tableauExec);
-                } else {
-                    //delete
-                    $idExerciceBdd = htmlspecialchars($exoDansLaBDD[$i]['idExo']); //recuperation de l'id de l'exo
-                    $tableauExec = array(':idExo' => $idExerciceBdd); //delete
-                    $statement4->execute($tableauExec);
+            $nouveauxTableauBdd = array(); //pour éviter d'avoir un tableau en dictionnaire de la BDD
+
+            $tailleTableauSite = count($exoDansLaBDD);
+            $tailleTableauBdd = count($tableauContenuExerciceDecode['idExo']);
+
+            $nouveauxTableauBdd = array_map(fn($value) : string => $value['idExo'], $exoDansLaBDD);//on remplit un nouveux tab avec tous les id des exos qui sera utilisé pour l'insertion car il est plus simple et évite de faire trop de boucle for
+
+            for ($i = 0; $i < $tailleTableauSite || $i < $tailleTableauBdd; $i++) {  //parcours de la bd et compare si delete, insert ou update en fonction
+
+                if ($i < $tailleTableauSite) {
+                    $this->modifierOuSupprimer($i, $exoDansLaBDD, $tableauContenuExerciceDecode, $statement2, $statement4);
                 }
-                $nouveauxTableu[$i] = $exoDansLaBDD[$i]['idExo'];//on remplit un nv tab qui sera utilisé pour l'insertion car il est plus simple et évite de faire trop de boucle for
-            }
-
-            for ($i = 0; $i < count($tableauContenuExerciceDecode['idExo']); $i++) { // boucle for pour l'insertion dans la BDD
-                $res = in_array($tableauContenuExerciceDecode['idExo'][$i], $nouveauxTableu); //on vérifie si l'exo n'existe pas déjà dans la BDD
-
-                if (!$res) { //Si l'id de l'exo n'existe pas alors on l'insert
-                    //variable de recuperation de données
-                    $idExercice = htmlspecialchars($tableauContenuExerciceDecode['idExo'][$i]); //recuperation de l'id de l'exo
-                    $html =  htmlspecialchars($tableauContenuExerciceDecode['html'][$i]); // recuperation de l'html
-                    $tableauExec = array(':idExo' => $idExercice, ':contenu' => json_encode($html), ':idFiche' => $idFiche);
-                    $statement->execute($tableauExec); //vois si pour le mdp on fait htmlspecialchars
+                if ($i < $tailleTableauBdd) {
+                    $this->inserer($tableauContenuExerciceDecode, $i, $nouveauxTableauBdd, $statement, $idFiche);
                 }
             }
         } catch (PDOException $e) {
             echo $e->getMessage() . $e->getCode();
+        }
+    }
+
+    private function modifierOuSupprimer($i, $exoDansLaBDD, $tableauContenuExerciceDecode, $statement2, $statement4)
+    {
+        if (in_array($exoDansLaBDD[$i]['idExo'], $tableauContenuExerciceDecode['idExo'])) { //update
+            $indiceExoSite = htmlspecialchars(array_search($exoDansLaBDD[$i]['idExo'], $tableauContenuExerciceDecode['idExo'])); //on cherche lebon index pour le tableau du site web
+
+            //update
+            $idExercice = htmlspecialchars($tableauContenuExerciceDecode['idExo'][$indiceExoSite]); //recuperation de l'id de l'exo
+            $html =  htmlspecialchars($tableauContenuExerciceDecode['html'][$indiceExoSite]); // recuperation de l'html                    
+            $tableauExec = array(':contenu' => json_encode($html), ':idExo' => $idExercice);
+            $statement2->execute($tableauExec);
+        } else {
+            //delete
+            $idExerciceBdd = htmlspecialchars($exoDansLaBDD[$i]['idExo']); //recuperation de l'id de l'exo
+            $tableauExec = array(':idExo' => $idExerciceBdd); //delete
+            $statement4->execute($tableauExec);
+        }
+    }
+
+    private function inserer($tableauContenuExerciceDecode, $i, $nouveauxTableauBdd, $statement, $idFiche)
+    {
+        $res = in_array($tableauContenuExerciceDecode['idExo'][$i], $nouveauxTableauBdd); //on vérifie si l'exo n'existe pas déjà dans la BDD
+
+        if (!$res) { //Si l'id de l'exo n'existe pas alors on l'insert
+            //variable de recuperation de données
+            $idExercice = htmlspecialchars($tableauContenuExerciceDecode['idExo'][$i]); //recuperation de l'id de l'exo
+            $html =  htmlspecialchars($tableauContenuExerciceDecode['html'][$i]); // recuperation de l'html
+            $tableauExec = array(':idExo' => $idExercice, ':contenu' => json_encode($html), ':idFiche' => $idFiche);
+            $statement->execute($tableauExec); //vois si pour le mdp on fait htmlspecialchars
         }
     }
 }
