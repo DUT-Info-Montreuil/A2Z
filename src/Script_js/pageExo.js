@@ -40,7 +40,7 @@ $(function() {
             } else if (classes.includes("exoAutre")) {
                 htmlNouvelExercice = '<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="inputVraiF all" /><button class = "supprimer" onClick="supprimerExo(this)">❌</button><p class="pVraiFaux">-autre type</p> </div>'
             } else if (classes.includes("consigne")) {
-                htmlNouvelExercice = '<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="rond all" maxlength="1"/><input type="text" name="VouF" class="consigne2 all" /></div>'
+                htmlNouvelExercice = '<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="rond all" maxlength="1"/><input type="text" name="VouF" class="consigne2 all" /> <button class = "supprimer" onClick="supprimerExo(this)">❌</button> </div>'
 
             }
 
