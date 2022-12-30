@@ -36,11 +36,11 @@ $(function() {
             let htmlNouvelExercice
             const uuid = CreateUUID()
             if (classes.includes("exoVraiFaux")) {
-                htmlNouvelExercice = `<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input  type="text" name="VouF" class="inputVraiF all input-utilisateur"><button class = "supprimer" onClick="supprimerExo()">❌</button> <p class="pVraiFaux">---------------Vrai----Faux</p> </div>`
+                htmlNouvelExercice = `<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="inputVraiF all input-utilisateur" /> <button class = "supprimer" onClick="supprimerExo(this)">❌</button> <p class="pVraiFaux">---------------Vrai----Faux</p> </div>`
             } else if (classes.includes("exoAutre")) {
-                htmlNouvelExercice = `<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="inputVraiF all input-utilisateur"><button class = "supprimer" onClick="supprimerExo()">❌</button><p class="pVraiFaux">-autre type</p> </div>`
+                htmlNouvelExercice = `<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="inputVraiF all input-utilisateur" /><button class = "supprimer" onClick="supprimerExo(this)">❌</button><p class="pVraiFaux">-autre type</p> </div>`
             } else if (classes.includes("consigne")) {
-                htmlNouvelExercice = `<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input  type="text" name="VouF" class="rond all input-utilisateur" maxlength="1"/><input type="text" name="VouF" class="consigne2 all input-utilisateur" ></div>`
+                htmlNouvelExercice = `<div class ="divVraiOuFaux classeDeBase" id="idDivVraiFaux"><input type="text" name="VouF" class="rond all input-utilisateur" maxlength="1"/><input type="text" name="VouF" class="consigne2 all input-utilisateur" /> <button class = "supprimer" onClick="supprimerExo(this)">❌</button> </div>`
 
             }
 

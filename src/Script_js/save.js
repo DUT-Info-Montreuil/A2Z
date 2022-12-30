@@ -36,8 +36,12 @@ function tojson() {
         idExo: donneesExercices.map(donnee => donnee.id), // creation tableau identifiant UNIQUE identifiant HTML
         html: exercicesHTML, // tableau des exos en html
         idFiche: deco_var, //GUID UNIQUE
-        positionExercice: donneesExercices.map(donnee => donnee.position) //stream pour récuperer la position dans le tableau d'objet 
+        positionExercice: donneesExercices.map(donnee => donnee.position) //stream pour récuperer la position dans le tableau d'objet
+        
     };
+    console.log(donneesExercices.map(donnee => donnee.id))
+    console.log(donneesExercices.map(donnee => donnee.position))
+
 
     document.querySelector(".divVraiOuFaux")
 
