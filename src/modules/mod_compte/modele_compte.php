@@ -18,7 +18,7 @@ class ModeleCompte  extends Connexion
             //ici on teste si l'identifiant est différents des autres
             $sql = 'Select * from utilisateur WHERE identifiant=:identifiant';
             $statement = self::$bdd->prepare($sql);
-            $statement->execute(array(':identifiant' => $_POST['nouveauidentifiant']));
+            $statement->execute(array(':identifiant' =>htmlspecialchars($_POST['nouveauidentifiant'])));
             $resultat = $statement->fetch();
 
             //si on trouve le bon user alors
@@ -51,7 +51,7 @@ class ModeleCompte  extends Connexion
             //ici on teste si l'adresse mail entrer par l'user  est différents des autres
             $sql = 'Select * from utilisateur WHERE adresseMail=:adresseMail';
             $statement = self::$bdd->prepare($sql);
-            $statement->execute(array(':adresseMail' => $_POST['nouveladresseMail']));
+            $statement->execute(array(':adresseMail' => htmlspecialchars($_POST['nouveladresseMail'])));
             $result = $statement->fetch();
 
             //si on trouve le bon user alors

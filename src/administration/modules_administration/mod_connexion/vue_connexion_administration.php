@@ -2,7 +2,7 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-die(affichage_erreur404_admin());
+  die(affichage_erreur404_admin());
 
 require_once "./Common/Classe_Generique/vue_generique.php";
 
@@ -11,7 +11,7 @@ class VueConnexion_administration extends Vue_Generique
 
   public function  __construct()
   {
-    parent::__construct(); // comme un super
+    parent::__construct();
   }
 
   ////////////////////////////////////////////////// CONNEXION ///////////////////////////////////////////////////////
@@ -19,7 +19,7 @@ class VueConnexion_administration extends Vue_Generique
   //fonction pour afficher le foirmulaire de connexion
   public function form_connexion_administration()
   {
-  ?>
+?>
     <title>Connexion Admin | A2Z</title>
     <?php
     if (!isset($_SESSION["identifiant"])) {
@@ -139,3 +139,10 @@ class VueConnexion_administration extends Vue_Generique
 <?php
   }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>

@@ -18,7 +18,7 @@ class VueEdition extends Vue_connexion_generique
     {
 ?>
 
-<title> Edition Fiche | A2Z</title>
+        <title> Edition Fiche | A2Z</title>
 
 
         <div class="flex-container" id="conteneurPageEdition">
@@ -121,7 +121,7 @@ class VueEdition extends Vue_connexion_generique
                                 <div class="content">
                                     <li class="ui-state-highlight listeDeroulante draggable continuePhrase">Colorie la bonne Phrase</li>
                                 </div>
-                                
+
                             </div>
                             <div class="question-wrap">
                                 <input type="radio" class="acc" id="question-5" name="question">
@@ -146,7 +146,7 @@ class VueEdition extends Vue_connexion_generique
 
                         <div class="content">
                             <form action="" class="search-bar"><!--  Mettre la bonne action -->
-                                <input type="search" id="barreDeRechercheImages" name="search" pattern=".*\S.*" required value="" >
+                                <input type="search" id="barreDeRechercheImages" name="search" pattern=".*\S.*" required value="">
 
                                 <script src="Script_js/import_photos.js"></script>
                                 <script type="text/javascript">
@@ -238,4 +238,10 @@ class VueEdition extends Vue_connexion_generique
 
     }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
 ?>

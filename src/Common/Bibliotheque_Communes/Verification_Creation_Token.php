@@ -16,4 +16,10 @@ if (constant("a2z") != "rya")
      function verification_token() {
         return strcmp($_POST['token'], $_SESSION['token']) == 0 && time() - $_SESSION['token_date'] < 300;//10 minutes
     }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
 ?>

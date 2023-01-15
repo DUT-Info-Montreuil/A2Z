@@ -2,7 +2,7 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-	die(affichage_erreur404());
+  die(affichage_erreur404());
 
 require_once("./Common/Classe_Generique/vue_connexion_generique.php");
 
@@ -127,4 +127,25 @@ class VueConnexion extends Vue_connexion_generique
 
   <?php
   }
+
+  public function SuppresionCompte()
+  {
+  ?>
+    <script src="Script_js/outils.js"></script>
+    <script type="text/javascript">
+      Toast.fire({
+        icon: 'warning',
+        title: "Attention votre compte a été supprimé veuillez contacter votre administrateur s'il s'agit d'une erreur 😓! "
+      })
+    </script>
+
+<?php
+  }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>

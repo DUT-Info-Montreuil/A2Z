@@ -1,4 +1,5 @@
 @media print {
+
     #accordeonGauche,
     nav,
     footer,
@@ -8,6 +9,7 @@
     .swal2-popup {
         display: none !important;
     }
+
     #page {
         padding: 0;
         margin: 0;
@@ -19,6 +21,7 @@
         border-color: black !important;
         border-width: 4px !important;
     }
+
     #conteneurPageA4,
     #conteneurPageEdition,
     #divpage {
@@ -32,17 +35,21 @@
       border-color: green !important;
       border-width: 10px !important;*/
     }
+
     canvas {
         display: block;
         padding-top: 15;
         margin-left: 12%;
     }
+
     p {
         font-size: 19px;
     }
+
     .inputCanva {
         margin-left: 30%;
     }
+
     body {
         padding: 0;
         margin: 0;
@@ -55,6 +62,7 @@
       border-color: red !important;
       border-width: 10px !important;*/
     }
+
     body>* {
         max-width: 100%;
         max-height: 100%;
@@ -63,25 +71,35 @@
         width: 100%;
         margin: 0;
     }
+
     page[size="A4"] {
         min-width: 21cm;
         min-height: 29.7cm;
         max-width: 21cm;
         max-height: 29.7cm;
     }
+
     @page {
         size: auto;
         margin: 0mm;
         position: absolute;
     }
+
     .inputVraiF,
     .consigne2,
     .divVraiOuFaux,
-     :link {
+    :link {
         border: none;
         font-size: 24px;
     }
+
     .coloriagePhrase {
         border: 1px solid grey;
     }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/

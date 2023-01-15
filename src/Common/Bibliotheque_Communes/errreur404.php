@@ -2,7 +2,7 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-	die(affichage_erreur404());
+    die(affichage_erreur404());
 
 function affichage_erreur404()
 {
@@ -16,7 +16,7 @@ function affichage_erreur404()
         <span class="four"><span class="screen-reader-text">4</span></span>
     </section>
     <div class="link-container">
-        <a  href="index.php?module=connexion&action=connexion" class="more-link">Retour à la page d'accueil</a>
+        <a href="index.php?module=connexion&action=connexion" class="more-link">Retour à la page d'accueil</a>
     </div>
 <?php
 
@@ -34,10 +34,16 @@ function affichage_erreur404_admin()
         <span class="four"><span class="screen-reader-text">4</span></span>
     </section>
     <div class="link-container">
-        <a  href="index.php?module=administration&action=connexion" class="more-link">Retour à la page d'accueil</a>
+        <a href="index.php?module=administration&action=connexion" class="more-link">Retour à la page d'accueil</a>
     </div>
 <?php
 
 }
 
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
 ?>

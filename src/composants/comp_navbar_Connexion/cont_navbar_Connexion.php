@@ -2,12 +2,12 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-	die(affichage_erreur404());
+    die(affichage_erreur404());
 
 require_once "vue_navbar_Connexion.php";
 class Cont_navbar_Connexion
 {
-    private $action;
+    private $vue;
 
     public function __construct()
     {
@@ -22,6 +22,6 @@ class Cont_navbar_Connexion
     public function affichageHabillage()
     {
         $this->vue->navBarHabillage();
-       // $this->vue->footerHabillage();
+        // $this->vue->footerHabillage();
     }
 }

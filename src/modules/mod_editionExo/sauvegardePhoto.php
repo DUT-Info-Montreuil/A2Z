@@ -61,16 +61,14 @@ class SauvegardePhoto  extends Connexion
                 $statement1 = self::$bdd->prepare($sql);
                 $statement1->execute(array($_SESSION['identifiant'], "%$nomImage%"));
                 $resultat_Tab_ID = $statement1->fetchAll(PDO::FETCH_ASSOC);
-
             } else {
                 //Requetes SQL
                 $sql = 'SELECT idImages FROM `images` WHERE idUser=:idUser LIMIT 10;'; //On récupere d'abord tous les id des images à afficher
                 $statement1 = self::$bdd->prepare($sql);
                 $idUser = $this->recuperationInfoCompte();
 
-                $statement1->execute(array(':idUser' => $idUser['idUser']));
+                $statement1->execute(array(':idUser' => htmlspecialchars($idUser['idUser'])));
                 $resultat_Tab_ID = $statement1->fetchAll(PDO::FETCH_ASSOC);
-                
             }
             $func = function ($tableau): string {
                 return ($tableau['idImages']);
@@ -90,19 +88,17 @@ class SauvegardePhoto  extends Connexion
             for ($i = 0; $i < $tailleTabImage; $i++) {
 
                 $sql2 = 'SELECT cheminImages FROM `images` WHERE idImages =:idImages';
-                $statement2->execute(array(':idImages' => $nouveauxTableauBdd[$i]));
+                $statement2->execute(array(':idImages' => htmlspecialchars($nouveauxTableauBdd[$i])));
                 $resultat_Tab_cheminImages[$i] = $statement2->fetch(PDO::FETCH_ASSOC);
             }
-            if(!empty($resultat_Tab_cheminImages)){
+            if (!empty($resultat_Tab_cheminImages)) {
                 header("Content-Type: application/json"); // On avertit le navigateur du type de donnée qu'on lui envoit !!!Hyper important ne pas enlever ou la page va complétement buguer!!!
                 echo json_encode($resultat_Tab_cheminImages); //Envoie à Js
             }
-
         } catch (PDOException $e) {
             echo $e->getMessage() . $e->getCode();
         }
     }
-
 }
 
 
@@ -113,3 +109,10 @@ if (isset($_POST['image'])) {
 } else {
     $photoExercice->recuperationPhotos();
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>

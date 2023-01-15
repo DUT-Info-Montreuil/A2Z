@@ -7,7 +7,7 @@ if (constant("a2z") != "rya")
 require_once "vue_footer.php";
 class Cont_footer
 {
-    private $action;
+    private $vue;
 
     public function __construct()
     {

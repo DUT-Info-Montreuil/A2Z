@@ -14,10 +14,10 @@
 }
 
 .boxBoutons {
-height:50px;
-width: 100%;
-margin: 25 50 -10 ;
-display: inline-block;
+    height: 50px;
+    width: 100%;
+    margin: 25 50 -10;
+    display: inline-block;
 }
 
 .imageSeule {
@@ -37,14 +37,16 @@ display: inline-block;
 }
 
 .button-34 {
-width: 175px;
-margin-left: 10px;
-height: 50px;
+    width: 175px;
+    margin-left: 10px;
+    height: 50px;
 }
+
 .fiche {
     height: 150px;
-    width: 150px; 
+    width: 150px;
 }
+
 figcaption {
     color: #fff;
     font: italic smaller sans-serif;
@@ -53,8 +55,9 @@ figcaption {
     width: 150px;
     text-align: center;
 }
+
 figure {
-    display : inline-block;
+    display: inline-block;
     max-width: 150px;
 
 }
@@ -65,3 +68,9 @@ figure {
     float: left;
 
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/

@@ -24,5 +24,3 @@ class Controleurgenerique{
         return $this->action;
     }
 }
-
-?>

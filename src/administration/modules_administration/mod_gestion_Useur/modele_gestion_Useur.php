@@ -19,7 +19,7 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
         try {
             $sql = 'DELETE FROM utilisateur WHERE utilisateur.identifiant=:identifiant ';
             $statement = self::$bdd->prepare($sql);
-            $statement->execute(array(':adresseMail' => $idUseur));
+            $statement->execute(array(':adresseMail' => htmlspecialchars($idUseur)));
             $resultat = $statement->fetchAll(); //fetchAll pour recuper le tout dans le tableau resultat
             return $resultat;
         } catch (PDOException $e) {
@@ -121,7 +121,7 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
 
             $sql = 'Select idUser from utilisateur WHERE identifiant=:identifiant';
             $statement = self::$bdd->prepare($sql);
-            $statement->execute(array(':identifiant' => $identifiant));
+            $statement->execute(array(':identifiant' => htmlspecialchars($identifiant)));
             $resultat = $statement->fetch();
             return $resultat;
         } catch (PDOException $e) {
@@ -134,7 +134,7 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
         try {
             $sql = 'Select * from utilisateur WHERE idUser=:idUseur';
             $statement = self::$bdd->prepare($sql);
-            $statement->execute(array(':idUseur' => $_GET['idUseur']));
+            $statement->execute(array(':idUseur' => htmlspecialchars($_GET['idUseur'])));
             $resultat = $statement->fetch();
             return $resultat;
         } catch (PDOException $e) {
@@ -157,7 +157,7 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
                         $statement = Connexion::$bdd->prepare($sql);
                         $statement->execute(array(
                             ':motDePasse' => password_hash(htmlspecialchars($_POST['motDePasse']), PASSWORD_DEFAULT),
-                            ':idUser' => $_GET['idUser']
+                            ':idUser' => htmlspecialchars($_GET['idUser'])
                         )); //vois si pour le mdp on fait htmlspecialchars
                     } else {
 
@@ -240,3 +240,10 @@ class ModeleConnexion_gestion_Useur extends ModeleCompte
         }
     }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>

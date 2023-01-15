@@ -2,7 +2,7 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-	die(affichage_erreur404());
+  die(affichage_erreur404());
 
 require_once "./Common/Classe_Generique/vue_generique.php";
 
@@ -10,14 +10,14 @@ require_once "./Common/Classe_Generique/vue_generique.php";
  * Classe qui est appeller par vueConnexion dans la partie administrateur et useur pour enlever les redondances
  */
 class Vue_connexion_generique extends Vue_Generique
-{ 
+{
 
-    public function  __construct()
-    {
-      parent::__construct(); // comme un super
-    }
+  public function  __construct()
+  {
+    parent::__construct(); // comme un super
+  }
 
-    //fonction pour l'affichage du toast "pop up" pour afficher un message d'erruer si un compte est Inexsistant '
+  //fonction pour l'affichage du toast "pop up" pour afficher un message d'erruer si un compte est Inexsistant '
   public function compteInexsistant()
   {
     if (isset($_SESSION['identifiant'])) {
@@ -29,7 +29,7 @@ class Vue_connexion_generique extends Vue_Generique
 
   public function affichageDeconnexion()
   {
-  ?>
+?>
     <script src="Script_js/outils.js"></script>
     <script type="text/javascript">
       Toast.fire({
@@ -94,10 +94,10 @@ class Vue_connexion_generique extends Vue_Generique
         title: "Attention  ce compte n'existe pas 😥!!! "
       })
     </script>
-<?php
+  <?php
   }
 
-  
+
   public function affichageAdreMailUtiliser()
   {
   ?>
@@ -109,7 +109,13 @@ class Vue_connexion_generique extends Vue_Generique
       })
     </script>
 
-  <?php
+<?php
   }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
 ?>

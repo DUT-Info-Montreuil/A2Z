@@ -132,7 +132,7 @@ label .accordion-heading {
     margin-bottom: 33px;
     box-sizing: border-box;
     padding: 30px;
-    background-color: lightgrey;
+    background-color: dimgray;;
     width: 65%;
 }
 
@@ -193,7 +193,7 @@ input:checked~.content {
 }
 
 input:checked~label .cross-box {
-    background-color: #93c04d;
+    background-color: #0098db;
 }
 
 input:checked~label .cross:before {
@@ -255,11 +255,12 @@ page {
 page[size="A4"] {
     min-width: 21cm;
     min-height: 41.7cm;
-    max-width: 25cm;
+    max-width: 21cm;
     max-height: 29.7cm;
 }
 
 @media print {
+
     body,
     page {
         margin: 0;
@@ -351,3 +352,9 @@ canvas {
 .supprimer {
     font-size: smaller;
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/

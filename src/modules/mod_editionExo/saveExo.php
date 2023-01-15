@@ -29,14 +29,16 @@ class saveExo extends connexion
             $sql2 = 'UPDATE exercices SET contenu= :contenu , positionExercice =:positionExercice WHERE idExo =:idExo';
             $sql3 = 'SELECT idExo FROM exercices WHERE idFiche = :idFiche'; // selectionenr les exercices avec lequel l'id de la fiche existe deja et si l'exo existe deja 
             $sql4 = 'DELETE FROM exercices WHERE idExo =:idExo';
-
+            $sql5 = 'UPDATE `fiche` SET `dateEcriture`= :dateEcriture WHERE `idFiche`= :idFiche';
             //preparation des requetes SQL
             $statement = Connexion::$bdd->prepare($sql);
             $statement1 = Connexion::$bdd->prepare($sql1);
             $statement2 = Connexion::$bdd->prepare($sql2);
             $statement3 = Connexion::$bdd->prepare($sql3);
             $statement4 = Connexion::$bdd->prepare($sql4);
-            $statement3->execute(array(':idFiche' => $idFiche));
+            $statement5 = Connexion::$bdd->prepare($sql5);
+
+            $statement3->execute(array(':idFiche' => htmlspecialchars($idFiche)));
             $exoDansLaBDD = $statement3->fetchAll(); //structure ne dictionnaire
 
             $nouveauxTableauBdd = array(); //pour éviter d'avoir un tableau en dictionnaire de la BDD
@@ -59,8 +61,10 @@ class saveExo extends connexion
                 if ($i < $tailleTableauSite) {
                     $this->modifierOuSupprimer($i, $exoDansLaBDD, $tableauContenuExerciceDecode, $statement2, $statement4);
                 }
-
             }
+            $DateImage  = date('l jS \of F Y h:i:s A');
+            $tableauExecution = array(':dateEcriture' => htmlspecialchars($DateImage), ':idFiche' => htmlspecialchars($idFiche));
+            $statement5->execute($tableauExecution);
         } catch (PDOException $e) {
             echo $e->getMessage() . $e->getCode();
         }
@@ -75,8 +79,8 @@ class saveExo extends connexion
             $idExercice = htmlspecialchars($tableauContenuExerciceDecode['idExo'][$indiceExoSite]); //recuperation de l'id de l'exo
             $html =  htmlspecialchars($tableauContenuExerciceDecode['html'][$indiceExoSite]); // recuperation de l'html   
             $positionExercice = htmlspecialchars($tableauContenuExerciceDecode['positionExercice'][$indiceExoSite]);
-                 
-            $tableauExec = array(':contenu' => json_encode($html), ':idExo' => $idExercice, ':positionExercice'=> $positionExercice);
+
+            $tableauExec = array(':contenu' => json_encode($html), ':idExo' => $idExercice, ':positionExercice' => $positionExercice);
             $statement2->execute($tableauExec);
         } else {
             //delete
@@ -97,7 +101,7 @@ class saveExo extends connexion
             $positionExercice = htmlspecialchars($tableauContenuExerciceDecode['positionExercice'][$i]);
 
             var_dump($html);
-            $tableauExec = array(':idExo' => $idExercice, ':contenu' => json_encode($html), ':idFiche' => $idFiche, ':positionExercice'=> $positionExercice);
+            $tableauExec = array(':idExo' => $idExercice, ':contenu' => json_encode($html), ':idFiche' => $idFiche, ':positionExercice' => $positionExercice);
             $statement->execute($tableauExec); //vois si pour le mdp on fait htmlspecialchars
         }
     }
@@ -105,3 +109,11 @@ class saveExo extends connexion
 
 $exoSauvegarder = new saveExo();
 $exoSauvegarder->insererDonneesExercices();
+
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>

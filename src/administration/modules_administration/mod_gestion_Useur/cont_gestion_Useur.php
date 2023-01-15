@@ -2,7 +2,7 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-	die(affichage_erreur404_admin());
+    die(affichage_erreur404_admin());
 
 require_once "vue_gestion_Useur.php";
 require_once "modele_gestion_Useur.php";
@@ -139,7 +139,7 @@ class ContConnexion_gestion_Useur extends Controleurgenerique
                     header('Location: ./index.php?module=gestionUseur&action=gestionUseur&affichageTokenExpire=true;');
                 }
                 break;
-                default:
+            default:
                 die(affichage_erreur404_admin());
         }
     }
@@ -161,7 +161,7 @@ class ContConnexion_gestion_Useur extends Controleurgenerique
 
     public function suppresionUseur()
     {
-        $adminactuel = $this->modele->recuperationIdUser( $_SESSION['identifiant']); //pour éviter qu'on puisse supprimé le compte sur lequel on est connecté
+        $adminactuel = $this->modele->recuperationIdUser($_SESSION['identifiant']); //pour éviter qu'on puisse supprimé le compte sur lequel on est connecté
         return $this->modele->suppresionUseur($adminactuel);
     }
 
@@ -264,3 +264,10 @@ class ContConnexion_gestion_Useur extends Controleurgenerique
         $this->vue->affichageAucuneInfoModifier();
     }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>

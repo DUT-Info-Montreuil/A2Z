@@ -2,7 +2,7 @@
 
 require_once("./Common/Bibliotheque_Communes/errreur404.php");
 if (constant("a2z") != "rya")
-	die(affichage_erreur404());
+    die(affichage_erreur404());
 
 class Modele_Connexion_Generique extends Connexion
 {
@@ -10,7 +10,7 @@ class Modele_Connexion_Generique extends Connexion
     {
         //Verification de si on est deja connecte
 
-        if (!isset($_POST['token']) ||!verification_token())
+        if (!isset($_POST['token']) || !verification_token())
             return 1; // faire une pop up et verification dans le  controlleur
         else {
 
@@ -58,3 +58,10 @@ class Modele_Connexion_Generique extends Connexion
         }
     }
 }
+/*
+Version 1.0 - 2022/11/30
+GNU GPL  Copyleft (C inversé) 2023-2033
+Initiated by Hamidi.Yassine,Chouchane.Rayan,Claude.Aldric
+Web Site = http://localhost/A2Z/src/index.php?module=connexion&action=connexion 
+*/
+?>
